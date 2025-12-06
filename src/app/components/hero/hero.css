@@ -1,0 +1,27 @@
+.hero-title {
+  line-height: 1.2;
+}
+
+.hero-identity {
+  line-height: 1.4;
+  margin-top: 0.75rem;
+}
+
+.hero-subtitle {
+  line-height: 1.6;
+  margin-top: 0.9rem;
+  color: #6b7280;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.hero-actions {
+  margin-top: 1.25rem;
+}
+
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
