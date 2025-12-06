@@ -10,8 +10,10 @@ import { form } from '@angular/forms/signals';
   styleUrls: ['./contact.css'],
 })
 export class ContactComponent {
-submit() {
-throw new Error('Method not implemented.');
-}
-
+  submit() {
+    alert(
+      'Thank you for reaching out! I will get back to you soon. Meanwhile, feel free to explore my portfolio further.'
+    );
+    throw new Error('Method not implemented.');
+  }
 }
