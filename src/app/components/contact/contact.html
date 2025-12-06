@@ -1,0 +1,24 @@
+<div class="container py-5">
+  <h2 class="fw-bold mb-4">Contact Me</h2>
+
+  <form class="row g-3" (ngSubmit)="submit()" #f="ngForm">
+    <div class="col-md-6">
+      <label class="form-label">Name</label>
+      <input class="form-control" name="name" ngModel required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="email" ngModel required email>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" rows="5" name="message" ngModel required></textarea>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary">Send</button>
+    </div>
+  </form>
+</div>
