@@ -1,3 +1,39 @@
 ul li {
-  margin-bottom: 6px;
+  margin-bottom: 0.5rem;
+  max-width: 100ch;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.downloadBtn {
+  text-align-last: center;
+}
+
+.profSummary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  max-width: 100ch;
+
+}
+
+.profTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.profSubTitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.8rem;
+
+}
+
+.sectionHeading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #1F2937;
 }
