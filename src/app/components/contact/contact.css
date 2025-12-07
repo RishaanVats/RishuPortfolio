@@ -1,0 +1,31 @@
+hr {
+    opacity: 1;
+    color: #dee2e6;
+    margin: 2rem 0;
+}
+
+.icoColor {
+  color: #6b7280; /* slate / neutral */
+}
+
+
+.lh-sm {
+    line-height: 1.2rem;
+}
+
+.sectionHeading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #1F2937;
+}
+
+.subTitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.8rem;
+}
+
+.customForm {
+    max-width: 100ch;
+}
