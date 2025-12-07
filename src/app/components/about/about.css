@@ -2,3 +2,7 @@
     color: #374151;
     line-height: 1.65rem;
 }
+
+.about-width{
+    max-width: 100ch;
+}
