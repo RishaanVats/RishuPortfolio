@@ -1,34 +1,60 @@
 <div class="container py-5">
-    <h2 class="fw-bold mb-4 text-decoration-none">Contact</h2>
-    <p>I’m open to frontend development opportunities, collaborations, and professional discussions.</p>
-    <div class="mb-4 lh-sm">
-        <p>You can reach me via:</p>
-        <p><i class="bi bi-envelope-at-fill icoColor"></i> Email: <a href="mailto:mishra00730@gmail.com" target="_blank">mishra00730@gmail.com</a></p>
-        <p><i class="bi bi-linkedin icoColor"></i> LinkedIn: <a href="https://www.linkedin.com/in/rishu-mishra/"
-                target="_blank">https://www.linkedin.com/in/rishu-mishra/</a></p>
-        <p><i class="bi bi-github icoColor"></i> GitHub: <a href="https://github.com/RishaanVats" target="_blank">https://github.com/RishaanVats</a></p>
+  <h2 class="fw-bold mb-4 text-decoration-none">Contact</h2>
+  <p>
+    I’m open to frontend development opportunities, collaborations, and professional discussions.
+  </p>
+  <div class="mb-4 lh-sm">
+    <p>You can reach me via:</p>
+    <p>
+      <i class="bi bi-envelope-at-fill icoColor"></i> Email:
+      <a href="mailto:mishra00730@gmail.com" target="_blank">mishra00730@gmail.com</a>
+    </p>
+    <p>
+      <i class="bi bi-linkedin icoColor"></i> LinkedIn:
+      <a href="https://www.linkedin.com/in/rishu-mishra/" target="_blank">https://www.linkedin.com/in/rishu-mishra/</a>
+    </p>
+    <p>
+      <i class="bi bi-github icoColor"></i> GitHub:
+      <a href="https://github.com/RishaanVats" target="_blank">https://github.com/RishaanVats</a>
+    </p>
+  </div>
+  <hr />
+  <h3 class="fw-bold mb-4 mt-4 sectionHeading">Or send me a message directly:</h3>
+  @if (alert.rendered) {
+  <div class="alert alert-{{ alert.type }} alert-animate d-flex align-items-center mb-4" [class.hide]="alert.hiding"
+    role="alert">
+    <i class="bi me-2" [ngClass]="{
+        'bi-check-circle-fill': alert.type === 'success',
+        'bi-exclamation-triangle-fill': alert.type === 'warning'
+      }"></i>
+    <div>{{ alert.message }}</div>
+  </div>
+  }
+
+  <form class="row g-3 customForm" (ngSubmit)="submit(contactform, $event)" #contactform="ngForm">
+    <div class="col-md-6">
+      <label class="form-label">Name <span class="text-danger">*</span></label>
+      <input class="form-control" type="text" name="user_name" ngModel placeholder="Name" required />
     </div>
-    <hr>
-    <h3 class="fw-bold mb-4 mt-4 sectionHeading">Or send me a message directly:</h3>
-    <form class="row g-3 customForm" (ngSubmit)="submit()" #f="ngForm">
-        <div class="col-md-6">
-            <label class="form-label">Name</label>
-            <input class="form-control" name="name" ngModel placeholder="Name" required>
-        </div>
 
-        <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input class="form-control" name="email" ngModel required email placeholder="Email">
-        </div>
+    <div class="col-md-6">
+      <label class="form-label">Email <span class="text-danger">*</span></label>
+      <input class="form-control" type="email" name="user_email" ngModel required email placeholder="Email" />
+    </div>
+    <input type="text" name="company" ngModel style="display: none" />
 
-        <div class="col-12">
-            <label class="form-label">Message</label>
-            <textarea class="form-control" rows="5" name="message" ngModel required placeholder="Your message"></textarea>
-        </div>
+    <div class="col-12">
+      <label class="form-label">Message <span class="text-danger">*</span></label>
+      <textarea class="form-control" rows="5" name="message" ngModel required placeholder="Your message"></textarea>
+      <div class="text-end"><input type="hidden" name="time" [value]="currentTime"/><span class="text-danger">*</span> - Required fields</div>
+    </div>
 
-        <div class="col-12">
-            <button class="btn btn-primary">Send Message</button>
-            <p class="subTitle mt-2">You can also reach me directly via email or LinkedIn.</p>
-        </div>
-    </form>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" [disabled]="sending || contactform.invalid">
+        Send Message
+      </button>
+      <p class="subTitle mt-2">You can also reach me directly via email or LinkedIn.</p>
+    </div>
+  </form>
+
 </div>

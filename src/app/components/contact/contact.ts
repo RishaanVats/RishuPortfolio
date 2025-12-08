@@ -1,19 +1,128 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { form } from '@angular/forms/signals';
+import { CommonModule } from '@angular/common';
+import { A11yModule } from '@angular/cdk/a11y';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+
+import emailjs from '@emailjs/browser';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../firebase'; // adjust path if needed
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, A11yModule],
   templateUrl: './contact.html',
   styleUrls: ['./contact.css'],
 })
 export class ContactComponent {
-  submit() {
-    alert(
-      'Thank you for reaching out! I will get back to you soon. Meanwhile, feel free to explore my portfolio further.'
+  constructor(private cdr: ChangeDetectorRef, private liveAnnouncer: LiveAnnouncer) {
+    emailjs.init(this.public_key);
+  }
+  sending = false;
+  currentTime: string = new Date().toLocaleString();
+
+  alert = {
+    type: '' as 'success' | 'warning',
+    message: '',
+    hiding: false,
+    rendered: false, // DOM exists
+  };
+
+  service_id: string = 'service_086nz7b';
+  template_id: string = 'template_1f2gr2d';
+  public_key: string = 'QHRVKaPWXWEcWAXy7';
+
+  showAlert(type: 'success' | 'warning', message: string, duration = 3500) {
+    this.alert.type = type;
+    this.alert.message = message;
+    this.alert.rendered = true;
+    this.alert.hiding = false;
+    this.cdr.detectChanges(); // ✅ re-render to add alert to DOM
+
+    // ✅ Announce to screen readers
+    this.liveAnnouncer.announce(message, 'assertive');
+
+    setTimeout(() => {
+      this.startHide();
+      this.cdr.detectChanges(); // ✅ re-render after timeout
+    }, duration);
+  }
+
+  startHide() {
+    this.alert.hiding = true;
+    this.cdr.detectChanges(); // ✅ re-render to hide alert
+
+    setTimeout(() => {
+      this.alert.hiding = false;
+      this.alert.rendered = false;
+      this.cdr.detectChanges(); // ✅ re-render to remove from DOM
+    }, 400); // Match CSS transition duration
+  }
+
+  saveToFirestore(formValue: any) {
+    return addDoc(collection(db, 'contactMessages'), {
+      name: formValue.user_name,
+      email: formValue.user_email,
+      message: formValue.message,
+      createdAt: serverTimestamp(),
+    });
+  }
+
+  sendEmailNotification(form: HTMLFormElement) {
+    return emailjs.sendForm(
+      this.service_id,
+      this.template_id,
+      form,
+      // {
+      //   name: formValue.name,
+      //   email: formValue.email,
+      //   message: formValue.message,
+      //   time: new Date().toLocaleString(),
+      // },
+      this.public_key
     );
-    throw new Error('Method not implemented.');
+  }
+
+  submit(form: any, event: Event): void {
+    console.log('SUBMIT CALLED', {
+      valid: form.valid,
+      sending: this.sending,
+      value: form.value,
+    });
+    // this.sending = true;
+    // this.showAlert('success', 'Message sent successfully.');
+
+    if (form.invalid || this.sending) return;
+    // if (form.value.company) return; // honeypot for spam bots
+    const htmlForm = event.target as HTMLFormElement;
+
+    this.sending = true;
+
+    this.saveToFirestore(form.value)
+      .then(() => {
+        //  real success (data saved)
+        this.showAlert('success', 'Message sent successfully. I will get back to you soon!');
+
+        this.liveAnnouncer.announce('Message sent successfully.', 'assertive');
+
+        // form.resetForm();
+
+        // ✅ optional email notification (best effort)
+        this.sendEmailNotification(htmlForm)
+          .then((pass) => {
+            console.log('EmailJS notification sending attempted.' + pass);
+          })
+          .catch((err) => {
+            console.warn('EmailJS failed — message safely stored.', err);
+          });
+      })
+      .catch(() => {
+        this.showAlert('warning', 'Sorry, something went wrong. Please try again later.');
+      })
+      .finally(() => {
+        this.sending = false;
+        this.cdr.detectChanges();
+      });
   }
 }
