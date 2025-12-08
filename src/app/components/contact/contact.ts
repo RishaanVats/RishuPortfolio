@@ -3,9 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { A11yModule } from '@angular/cdk/a11y';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-
 import emailjs from '@emailjs/browser';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { environment } from '../../../environments/environment';
 import { db } from '../../firebase'; // adjust path if needed
 
 @Component({
@@ -29,9 +29,9 @@ export class ContactComponent {
     rendered: false, // DOM exists
   };
 
-  service_id: string = 'service_086nz7b';
-  template_id: string = 'template_1f2gr2d';
-  public_key: string = 'QHRVKaPWXWEcWAXy7';
+  service_id: string = environment.emailjs.serviceId;
+  template_id: string = environment.emailjs.templateId;
+  public_key: string = environment.emailjs.publicKey;
 
   showAlert(type: 'success' | 'warning', message: string, duration = 3500) {
     this.alert.type = type;
@@ -74,12 +74,6 @@ export class ContactComponent {
       this.service_id,
       this.template_id,
       form,
-      // {
-      //   name: formValue.name,
-      //   email: formValue.email,
-      //   message: formValue.message,
-      //   time: new Date().toLocaleString(),
-      // },
       this.public_key
     );
   }
@@ -90,11 +84,9 @@ export class ContactComponent {
       sending: this.sending,
       value: form.value,
     });
-    // this.sending = true;
-    // this.showAlert('success', 'Message sent successfully.');
 
     if (form.invalid || this.sending) return;
-    // if (form.value.company) return; // honeypot for spam bots
+    if (form.value.company) return; // honeypot for spam bots
     const htmlForm = event.target as HTMLFormElement;
 
     this.sending = true;
@@ -106,15 +98,13 @@ export class ContactComponent {
 
         this.liveAnnouncer.announce('Message sent successfully.', 'assertive');
 
-        // form.resetForm();
-
         // ✅ optional email notification (best effort)
         this.sendEmailNotification(htmlForm)
           .then((pass) => {
-            console.log('EmailJS notification sending attempted.' + pass);
+            console.log('EmailJS notification sending attempted.');
           })
           .catch((err) => {
-            console.warn('EmailJS failed — message safely stored.', err);
+            console.warn('EmailJS failed — message safely stored.',);
           });
       })
       .catch(() => {
