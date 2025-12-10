@@ -1,0 +1,107 @@
+/* ================================
+   Case Study – Professional Styling
+   ================================ */
+
+.case-study {
+  background-color: #ffffff;
+  color: #212529;
+  line-height: 1.65;
+}
+
+/* Headings */
+.case-study h2 {
+  font-size: 2rem;
+  letter-spacing: -0.3px;
+}
+
+.case-study h3 {
+  font-size: 1.05rem;
+  text-transform: none;
+  margin-bottom: 0.5rem;
+}
+
+.case-study h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+/* Section spacing */
+.case-study section {
+  scroll-margin-top: 85px; /* offset for fixed navbar */
+}
+
+.case-study section + hr {
+  border-top: 1px solid #e9ecef;
+}
+
+/* Paragraphs */
+.case-study p {
+  color: #343a40;
+  margin-bottom: 0.75rem;
+}
+
+/* Lists */
+.case-study ul {
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.case-study li {
+  margin-bottom: 0.4rem;
+  color: #343a40;
+}
+
+/* Strong text */
+.case-study strong {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Header subtitle */
+.case-study header p {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Tech stack block */
+.case-study .row h4 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.case-study .row p {
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+/* Horizontal rule */
+.case-study hr {
+  margin: 2rem 0;
+  opacity: 1;
+}
+
+/* Responsive refinements */
+@media (max-width: 768px) {
+  .case-study h2 {
+    font-size: 1.55rem;
+  }
+
+  .case-study {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Subtle emphasis for impact numbers */
+.case-study .impact-highlight {
+  font-weight: 600;
+  color: #0d6efd; /* aligns with Bootstrap primary */
+}
+
+/* Optional card wrapper if you decide to wrap later */
+.case-study-card {
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+}
