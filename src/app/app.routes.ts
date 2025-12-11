@@ -6,6 +6,7 @@ import { ProjectsComponent } from './components/projects/projects';
 import { ResumeComponent } from './components/resume/resume';
 import { ContactComponent} from './components/contact/contact';
 import { CaseStudiesComponent } from './components/case-studies/case-studies'
+import { TestimonialsComponent } from './components/testimonials/testimonials'
 
 export const routes: Routes = [
   { path: '', component: HeroComponent },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'skills', component: SkillsComponent },
   { path: 'case-studies', component: CaseStudiesComponent },
   { path: 'projects', component: ProjectsComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
   { path: 'resume', component: ResumeComponent },
   { path: 'contact', component: ContactComponent },
 ];

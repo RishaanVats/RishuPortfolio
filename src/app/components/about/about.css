@@ -6,3 +6,24 @@
 .about-width{
     max-width: 100ch;
 }
+
+.about-page {
+  background-color: #ffffff;
+  color: #212529;
+  line-height: 1.7;
+}
+
+/* Education block */
+.about-education {
+  border-top: 1px solid #e9ecef;
+}
+
+.about-testimonial-preview {
+  border-top: 1px solid #e9ecef;
+}
+
+.about-education p,
+.about-testimonial-preview p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
