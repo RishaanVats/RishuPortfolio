@@ -79,11 +79,11 @@ export class ContactComponent {
   }
 
   submit(form: any, event: Event): void {
-    console.log('SUBMIT CALLED', {
-      valid: form.valid,
-      sending: this.sending,
-      value: form.value,
-    });
+    // console.log('SUBMIT CALLED', {
+    //   valid: form.valid,
+    //   sending: this.sending,
+    //   value: form.value,
+    // });   - not needed now
 
     if (form.invalid || this.sending) return;
     if (form.value.company) return; // honeypot for spam bots
