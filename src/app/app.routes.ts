@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { HeroComponent } from './components/hero/hero';
 
 export const routes: Routes = [
-  { path: '', component: HeroComponent },
+  { path: '', 
+    loadComponent: () => import('./components/hero/hero').then((m) => m.HeroComponent) },
   {
     path: 'about',
     loadComponent: () => import('./components/about/about').then((m) => m.AboutComponent),
@@ -35,6 +36,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];

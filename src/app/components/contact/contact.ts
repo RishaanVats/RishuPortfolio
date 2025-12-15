@@ -113,6 +113,7 @@ export class ContactComponent {
       .finally(() => {
         this.sending = false;
         this.cdr.detectChanges();
+        form.reset();
       });
   }
 }
