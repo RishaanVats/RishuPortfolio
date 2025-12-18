@@ -1,6 +1,10 @@
 # RishuPortfolio
 # Personal Portfolio – Angular
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://rishumishra.web.app)
+[![Angular](https://img.shields.io/badge/Angular-Framework-red)](https://angular.io/)
+[![Firebase Hosting](https://img.shields.io/badge/Deployed%20on-Firebase-orange)](https://firebase.google.com/)
+
 This repository contains my personal portfolio website built using Angular and Bootstrap. The project showcases selected frontend projects, case studies, and technical experience, with a focus on clean UI, performance, and production-ready architecture.
 
 ## Tech Stack
@@ -19,16 +23,20 @@ This repository contains my personal portfolio website built using Angular and B
 - Component-based architecture
 - Angular routing with lazy-loaded modules
 - Responsive and mobile-friendly layouts
-- Secure environment-based configuration for third-party services
+- Secure environment-based configuration
 - Optimized production builds
 
-## Project Goals
-- Present real-world frontend work in a structured and professional manner
-- Demonstrate modern Angular development best practices
-- Showcase deployment, integration, and production workflows
+## Architecture Overview
+The application follows a modular Angular architecture with clearly separated UI components, services, and routing layers, designed for maintainability and scalability.
+
+## Security & Best Practices
+- Environment variables for third-party keys
+- No secrets committed to source control
+- Firestore protected via security rules
+- Production-ready build optimizations
 
 ## Deployment
-The portfolio is deployed on Firebase Hosting as a single-page application and optimized for performance and reliability.
+Deployed on Firebase Hosting as a single-page application.
 
 ## Author
 Rishu Mishra  
@@ -92,4 +100,5 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
 
