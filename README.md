@@ -1,4 +1,39 @@
 # RishuPortfolio
+# Personal Portfolio – Angular
+
+This repository contains my personal portfolio website built using Angular and Bootstrap. The project showcases selected frontend projects, case studies, and technical experience, with a focus on clean UI, performance, and production-ready architecture.
+
+## Tech Stack
+- Angular
+- TypeScript
+- Bootstrap
+- HTML5
+- CSS3
+
+## Integrations & Services
+- Firebase Hosting (deployment)
+- Firebase Firestore (contact message storage)
+- EmailJS (email notifications from contact form)
+
+## Key Features
+- Component-based architecture
+- Angular routing with lazy-loaded modules
+- Responsive and mobile-friendly layouts
+- Secure environment-based configuration for third-party services
+- Optimized production builds
+
+## Project Goals
+- Present real-world frontend work in a structured and professional manner
+- Demonstrate modern Angular development best practices
+- Showcase deployment, integration, and production workflows
+
+## Deployment
+The portfolio is deployed on Firebase Hosting as a single-page application and optimized for performance and reliability.
+
+## Author
+Rishu Mishra  
+Frontend Developer
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
@@ -57,3 +92,4 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
