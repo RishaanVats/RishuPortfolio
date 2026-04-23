@@ -3,33 +3,37 @@
 
   <p class="text-muted"></p>
   <!-- Project Seperation marker ======================== -->
-  <div class="card project-card">
-    <div class="project-img-wrapper">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Project Image"
-        class="project-img">
-      <div class="project-overlay"></div>
-      <span class="project-category">Web UI</span>
-    </div>
-    <div class="project-card-body">
-      <h3 class="project-title">Cube Frontend Assignment</h3>
-      <p class="project-description">
-        An accessible, responsive e-commerce UI built from scratch using semantic HTML, custom CSS, and vanilla
-        JavaScript, with a deliberate focus on accessibility beyond stated requirements.
-      </p>
-      <div class="project-tech">
-        <span class="tech-badge">HTML5</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">CSS</span>
+  <div class="d-flex flex-wrap gap-3">
+    @for(project of projects; track project.id){
+    <div class="card project-card">
+      <div class="project-img-wrapper">
+        <img [src]="project.image" [alt]="project.title" class="project-img">
+        <div class="project-overlay"></div>
+        <span class="project-category">{{project.category}}</span>
       </div>
-      <div class="project-links">
-        <a href="https://cubetechassignment.web.app/" class="project-btn btn-primary-custom" target="_blank" rel="noopener" aria-label="Link to the assignment live demo">
-          <i class="fas fa-external-link-alt icon"></i> Live Demo
-        </a>
-        <a href="https://github.com/RishaanVats/CubeHTMLAssignment" class="project-btn btn-outline-custom" target="_blank" rel="noopener" aria-label="Link to the assignment code repository">
-          <i class="fab fa-github icon"></i> Code
-        </a>
+      <div class="project-card-body">
+        <h3 class="project-title">{{project.title}}</h3>
+        <p class="project-description">
+          {{project.description}}
+        </p>
+        <div class="project-tech">
+          @for(tech of project.techStack; track tech){
+          <span class="tech-badge">{{tech}}</span>
+          }
+        </div>
+        <div class="project-links">
+          <a [href]="project.links.live" class="project-btn btn-primary-custom" target="_blank" rel="noopener"
+            aria-label="Link to the project live demo">
+            <i class="fas fa-external-link-alt icon"></i> Live Demo
+          </a>
+          <a [href]="project.links.code" class="project-btn btn-outline-custom" target="_blank" rel="noopener"
+            aria-label="Link to the project code repository">
+            <i class="fab fa-github icon"></i> Code
+          </a>
+        </div>
       </div>
     </div>
+    }
   </div>
 
   <!-- <div class="row g-4 mt-3">
