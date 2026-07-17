@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -6,6 +6,7 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [RouterLink],
   templateUrl: './resume.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./resume.css'],
 })
 export class ResumeComponent {
