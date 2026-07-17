@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -13,6 +13,7 @@ import { db } from '../../firebase'; // adjust path if needed
   standalone: true,
   imports: [FormsModule, CommonModule, A11yModule],
   templateUrl: './contact.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./contact.css'],
 })
 export class ContactComponent {
