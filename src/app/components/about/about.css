@@ -14,7 +14,8 @@
 }
 
 /* Education block */
-.about-education {
+.about-education,
+.about-campus {
   border-top: 1px solid #e9ecef;
 }
 
@@ -23,7 +24,8 @@
 }
 
 .about-education p,
-.about-testimonial-preview p {
+.about-testimonial-preview p,
+.about-campus p {
   font-size: 0.95rem;
   line-height: 1.6;
 }
