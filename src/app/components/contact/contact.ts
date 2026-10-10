@@ -97,7 +97,7 @@ export class ContactComponent {
         //  real success (data saved)
         this.showAlert('success', 'Your message has been delivered and securely logged for reliability. I will get back to you soon.');
 
-        this.liveAnnouncer.announce('Message sent successfully.', 'assertive');
+        // this.liveAnnouncer.announce('Message sent successfully.', 'assertive');
 
         // ✅ optional email notification (best effort)
         this.sendEmailNotification(htmlForm)
