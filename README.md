@@ -1,5 +1,5 @@
 # RishuPortfolio
-# Personal Portfolio – Angular
+# Personal Portfolio - Angular
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://rishumishra.web.app)
 [![Angular](https://img.shields.io/badge/Angular-Framework-red)](https://angular.io/)
